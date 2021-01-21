@@ -65,7 +65,7 @@ def ChiMerge(df, variable, flag, confidenceVal=3.841, bin=10, sample = None):
         np_regroup[chi_min_index, 0] = np_regroup[chi_min_index + 1, 0]
         np_regroup = np.delete(np_regroup, chi_min_index + 1, 0)
 
-        if (chi_min_index == np_regroup.shape[0] - 1):  # 最小值试最后两个区间的时候
+        if (chi_min_index == np_regroup.shape[0] - 1):  # 最小值是最后两个区间的时候
             # 计算合并后当前区间与前一个区间的卡方值并替换
             chi_table[chi_min_index - 1] = (np_regroup[chi_min_index - 1, 1] * np_regroup[chi_min_index, 2] - np_regroup[chi_min_index - 1, 2] * np_regroup[chi_min_index, 1]) ** 2 \
                                            * (np_regroup[chi_min_index - 1, 1] + np_regroup[chi_min_index - 1, 2] + np_regroup[chi_min_index, 1] + np_regroup[chi_min_index, 2]) / \
